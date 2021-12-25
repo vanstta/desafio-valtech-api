@@ -40,9 +40,16 @@ img {
     padding: 10px 10px;
 }
 
-.card {
+#card {
    padding-left: 15px;
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user {
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 hr {
@@ -62,4 +69,13 @@ h3 {
     padding-top: 100px;
     
     
+}
+
+.ocultar {
+    display: none;
+}
+
+#buscar {
+    margin-top: 15px;
+    margin-left: 15px;
 }

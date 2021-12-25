@@ -10,6 +10,7 @@ export const obtenerUsuarios = async() => {
 
     const data = await respuesta.json();
     const usuarios = data.results
+    
     return usuarios;
 
    }catch(err) {

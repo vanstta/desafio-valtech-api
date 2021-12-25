@@ -20,33 +20,28 @@ const hacerHtml = () => {
 
 
 }
-
+obtenerUsuarios().then(console.log)
 const crearCardUsuario = ( usuario ) => {
     const {
+        picture: {large},
+        name: {first},
+        name: {last},
+        location: {city},
+        location: {state},
+        location: {postcode},
+        registered: {age}
 
-        picture: {
-        
-        large
-        }
-         } = usuario
+        } = usuario
 
-    // const  img = usuario.picture.large
-    const name = usuario.name.first 
-    const lastName = usuario.name.last 
-    const city = usuario.location.city
-    const state = usuario.location.state
-    const pc = usuario.location.postcode
-
-   
     const html = `
     <img class="foto" src="${large}" alt="persona">
     <div class="cardDatos">
-        <h3 class="nombre">${name} ${lastName}</h3>
+        <h3 class="nombre">${first} ${last}</h3>
         <i class="fas fa-filter puesto">Recruitment Consultancy</i>
-        <i class="fas fa-map-marker-alt ciudad">${city}, ${state} ${pc} </i>
+        <i class="fas fa-map-marker-alt ciudad">${city}, ${state} ${postcode} </i>
         <hr>
         <div>
-            <i class="far fa-clock activo">1M ago</i>
+            <i class="far fa-clock activo">Activo hace: ${age} años</i>
             <i class="far fa-heart"></i>
         </div>
         
@@ -55,10 +50,15 @@ const crearCardUsuario = ( usuario ) => {
     `;
 
     const divCard = document.createElement('div');
+    divCard.classList.add('user')
     divCard.innerHTML = html;
 
     // Añadir el table row (tr) dentro del TBody creado anteriormente
     card.appendChild(divCard)
+    
+    
+    
+
 }
 
 export const init = async() => {
@@ -70,3 +70,26 @@ export const init = async() => {
     usuarios.forEach(crearCardUsuario);
 
 }
+
+const inputBuscar =document.getElementById('buscar')
+const tarjeta = document.getElementsByClassName('user')
+
+inputBuscar.addEventListener('keyup', (e)=> {
+    let texto= e.target.value;
+    
+    let er= new RegExp(texto, "i");
+    for (let i=0; i<tarjeta.length; i++) {
+        let valor= tarjeta[i];
+    
+        if(er.test(valor.innerText)) {
+            valor.classList.remove('ocultar')
+        }else {
+            console.log(valor)
+            valor.classList.add('ocultar')
+        }
+    }
+
+
+})
+
+
