@@ -10,7 +10,14 @@ const hacerHtml = () => {
                         <div id="card">
 
                         </div>
-                    </div>`;
+                    </div>
+                    <div class="botones-paginado">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>4</button>
+                    <button>5</button>
+                </div>`;
 
     const div = document.createElement('div');
     div.innerHTML = html;
@@ -41,7 +48,7 @@ const crearCardUsuario = ( usuario ) => {
         <i class="fas fa-map-marker-alt ciudad">${city}, ${state} ${postcode} </i>
         <hr>
         <div>
-            <i class="far fa-clock activo">Activo hace: ${age} años</i>
+            <i class="far fa-clock activo">Active since: ${age}Y ago</i>
             <i class="far fa-heart"></i>
         </div>
         
@@ -53,7 +60,7 @@ const crearCardUsuario = ( usuario ) => {
     divCard.classList.add('user')
     divCard.innerHTML = html;
 
-    // Añadir el table row (tr) dentro del TBody creado anteriormente
+    
     card.appendChild(divCard)
     
     
